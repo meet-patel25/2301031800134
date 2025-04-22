@@ -9,12 +9,11 @@ class PuzzleGame:
         self.size = size
         self.buttons = []
         self.empty_tile = size * size - 1
-        self.board = list(range(1, size * size)) + [0]  # 0 represents the empty tile
+        self.board = list(range(1, size * size)) + [0] 
         self.shuffle_board()
         self.create_widgets()
 
     def shuffle_board(self):
-        # Simple shuffling algorithm
         for _ in range(1000):
             possible_moves = self.get_valid_moves(self.board.index(0))
             if possible_moves:
@@ -48,13 +47,13 @@ class PuzzleGame:
         moves = []
         # Check adjacent tiles
         if row > 0:
-            moves.append((row - 1) * self.size + col)  # Up
+            moves.append((row - 1) * self.size + col)
         if row < self.size - 1:
-            moves.append((row + 1) * self.size + col)  # Down
+            moves.append((row + 1) * self.size + col)
         if col > 0:
-            moves.append(row * self.size + col - 1)  # Left
+            moves.append(row * self.size + col - 1)
         if col < self.size - 1:
-            moves.append(row * self.size + col + 1)  # Right
+            moves.append(row * self.size + col + 1)
         return moves
 
     def move(self, clicked_index):
